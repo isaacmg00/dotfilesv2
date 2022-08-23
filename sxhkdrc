@@ -11,8 +11,13 @@ super + shift + Return
 ##---------- Rofi Launcher & Menus ----------##
 
 # Rofi App Launcher
-alt + F1
-	sh ~/.config/bspwm/rofi/bin/launcher
+super + p
+	sh ~/.config/bspwm/rofi/bin/launcher || killall rofi
+
+# Screenshot an area using import (saves to clipboard)
+super + shift + s
+	import png:- | xclip -selection clipboard -t image/png
+
 
 # Rofi Network Menu
 super + n
