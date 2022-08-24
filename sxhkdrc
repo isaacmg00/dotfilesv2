@@ -100,7 +100,7 @@ super + space
     bspc node -t "~"{floating,tiled}
 
 # Pseudo Tiled & tiled mode
-super + {p,t}
+super + {o,t}
     bspc node -t {pseudo_tiled,tiled}
 
 # Set the node flags
@@ -115,9 +115,15 @@ super + {_,shift + }{Left,Down,Up,Right}
 alt + {_,shift + }Tab
 	bspc node -f {next.local,prev.local}
 
+# Change gap size
+super + {_, shift +} a
+    { bspc config -d focused window_gap $(( $(bspc config -d focused window_gap) + 1 )), \
+    [ $(bspc config -d focused window_gap) -ge 1  ] && \
+    bspc config -d focused window_gap $(( $(bspc config -d focused window_gap) - 1)) }
+
 # Switch workspace
-ctrl + alt + {Left,Right}
-	bspc desktop -f {prev.local,next.local}
+super + {1-8}
+  bspc desktop -f {I,II,III,IV,V,VI,VII,VIII}
 
 # Switch to last opened workspace
 super + {Tab,grave}
