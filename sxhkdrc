@@ -84,8 +84,15 @@ ctrl + alt + Escape
     xkill
 
 # Fullscreen or Monocle
-super + f
-	bspc desktop -l next
+#super + f
+#	bspc node -t \~fullscreen
+		
+# Toggle eww bar off when fullscreening windows
+super + f 
+	mode toggle && bspc node -t \~fullscreen
+	
+	
+#bspc desktop -l next
 	
 # Split horizontal, vertical or cancel
 super + {h,v,q}
@@ -123,7 +130,7 @@ super + {_, shift +} a
 
 # Switch workspace
 super + {1-8}
-  bspc desktop -f {I,II,III,IV,V,VI,VII,VIII}
+  bspc desktop -f {ws1,ws2,ws3,ws4,ws5,ws6}
 
 # Switch to last opened workspace
 super + {Tab,grave}
