@@ -1,71 +1,18 @@
-##---------- Keybindings for bspwm ----------##
-
 # Terminal (alacritty)
 super + Return
 	alacritty
 
-# Floating terminal
-super + shift + Return
-	bspterm -f
-
-##---------- Rofi Launcher & Menus ----------##
-
 # Rofi App Launcher
-super + p
-	sh ~/.config/bspwm/rofi/bin/launcher || killall rofi
+super + r
+	sh ~/.config/rofi/launchers/type-2/launcher.sh || killall rofi
+
+# Rofi Powermenu
+super + l
+	sh ~/.config/rofi/powermenu/type-2/powermenu.sh || killall rofi
 
 # Screenshot an area using import (saves to clipboard)
 super + shift + s
 	import png:- | xclip -selection clipboard -t image/png
-
-
-# Rofi Network Menu
-super + n
-	nmd
-
-# Rofi Menus
-super + {w,m,x,r}
-	sh ~/.config/bspwm/rofi/bin/{windows,mpd,powermenu,asroot}
-
-ctrl + alt + {s,n,t}
-	sh ~/.config/bspwm/rofi/bin/{screenshot,network,themes}
-
-##---------- Applications ----------##
-
-# Launch Apps
-super + t
-	thunar
-
-##---------- System ----------##
-
-# Take a screenshot
-Print
-	scrot 'Screenshot_%Y-%m-%d-%S_$wx$h.png' -e 'mv $f $$(xdg-user-dir PICTURES) ; viewnior $$(xdg-user-dir PICTURES)/$f'
-	
-# Take a screenshot in 5 second
-alt + Print	
-	scrot -d 5 'Screenshot_%Y-%m-%d-%S_$wx$h.png' -e 'mv $f $$(xdg-user-dir PICTURES) ; viewnior $$(xdg-user-dir PICTURES)/$f'
-
-# Brighness control
-XF86MonBrightness{Up,Down}
-	backlight{-up,-down}
-	
-# Volume control
-XF86Audio{RaiseVolume,LowerVolume}
-	volume{-up,-down}
-
-XF86AudioMute
-	amixer set Master toggle
-	
-# Music control
-XF86Audio{Next,Prev,Play,Stop}
-	mpc {next,prev,toggle,stop}
-
-##---------- Bspwm ----------##
-
-# Lockscreen
-ctrl + alt + l
-    bsplock
 
 # Reload Keybindings
 super + Escape
@@ -83,40 +30,13 @@ super + q
 ctrl + alt + Escape
     xkill
 
-# Fullscreen or Monocle
-#super + f
-#	bspc node -t \~fullscreen
-		
-# Toggle eww bar off when fullscreening windows
-super + f 
-	mode toggle && bspc node -t \~fullscreen
-	
-	
-#bspc desktop -l next
-	
-# Split horizontal, vertical or cancel
-super + {h,v,q}
-	bspc node -p {east,south,cancel}
-
 # Preselect the ratio
 super + ctrl + {1-9}
 	bspc node -o 0.{1-9}
-
+ 
 # Toggle beetwen floating & tiled
 super + space
     bspc node -t "~"{floating,tiled}
-
-# Pseudo Tiled & tiled mode
-super + {o,t}
-    bspc node -t {pseudo_tiled,tiled}
-
-# Set the node flags
-super + ctrl + {m,x,y,z}
-	bspc node -g {marked,locked,sticky,private}
-
-# Send the window to another edge of the screen
-super + {_,shift + }{Left,Down,Up,Right}
-	bspc node -{f,s} {west,south,north,east}
 
 # Change focus to next window, including floating window
 alt + {_,shift + }Tab
@@ -129,31 +49,21 @@ super + {_, shift +} a
     bspc config -d focused window_gap $(( $(bspc config -d focused window_gap) - 1)) }
 
 # Switch workspace
-super + {1-8}
-  bspc desktop -f {ws1,ws2,ws3,ws4,ws5,ws6}
+super + {1,2,3,4,5,6}
+	bspc desktop -f {1,2,3,4,5,6}
 
-# Switch to last opened workspace
-super + {Tab,grave}
-	bspc {node,desktop} -f last
+# Send to the given desktop
+super + {_,shift + }{1-6}
+	bspc {desktop -f,node -d} '{1-6}'
 
-# Send focused window to another workspace
-super + {_,shift + }{1-8}
-	bspc {desktop -f,node -d} '^{1-8}'
+# Fullscreen focused window
+super + f 
+  bspc node -t '~fullscreen'
 
-# Expanding windows
-super + control + {Left,Right,Up,Down}
-	bspc node -z {left -20 0,right 20 0,top 0 -20,bottom 0 20}
-	
-## Shrinking windows
-super + alt + {Left,Right,Up,Down}
-	bspc node -z {left 20 0,right -20 0,top 0 20,bottom 0 -20}
-	
-## Move floating windows
-alt + shift + {Left,Down,Up,Right}
-	bspc node -v {-20 0,0 20,0 -20,20 0}
-
-# Hide/Unhide Window
-super + shift + i
-	winmask		
+# Resize windows
+super + shift + r : {Left,Down,Up,Right}
+  STEP=20; SELECTION={1,2,3,4}; \
+  bspc node -z $(echo "left -$STEP 0,bottom 0 $STEP,top 0 -$STEP,right $STEP 0" | cut -d',' -f$SELECTION) || \
+  bspc node -z $(echo "right -$STEP 0,top 0 $STEP,bottom 0 -$STEP,left $STEP 0" | cut -d',' -f$SELECTION)
 
 ##---------- EOF ----------##
