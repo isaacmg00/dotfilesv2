@@ -2,8 +2,8 @@
 After endlessly modding config files striving for the perfect harmony between usability and aesthetics I feel like I have finally achieved my perfect Manjaro setup. I've been using this setup as a daily driver and development environment for a few months now without changing much and I really enjoy using it.   
 ### Screenshots:
 
-<img src="screenshot.png">
-<img src="screenshot2.png">
+<img src="screenshots/image1.png">
+<img src="screenshots/image1.png">
 
 ### System Information:
 
