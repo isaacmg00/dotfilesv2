@@ -1,5 +1,8 @@
 # BSPWM Setup
-After endlessly modding config files striving for the perfect harmony between usability and aesthetics I feel like I have finally achieved my perfect Manjaro setup. I've been using this setup as a daily driver and development environment for a few months now without changing much and I really enjoy using it.   
+After endlessly modding config files striving for the perfect harmony between usability and aesthetics I feel like I have finally achieved my perfect Manjaro setup. I've been using this setup as a daily driver and development environment for a few months now without changing much and I really enjoy using it.
+
+Many configurations and bindings are fine tuned to my specific keyboard and display, so the bar and compositor settings might not work if you clone this repo.
+
 ### Screenshots:
 <p float="left">
 <img src="screenshots/image1.png" width="45%">
