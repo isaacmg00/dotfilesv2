@@ -32,7 +32,7 @@ These provide for system-wide theme consistency based off the current wallpaper.
 
 ### :pencil2: Fonts:  
 - **Terminal**: Iosevka  
-- **Polybar** (bottom) :[JetBrains Mono](https://github.com/JetBrains/JetBrainsMono), [FontAwesome](https://fontawesome.com/) and [Material Icons](https://google.github.io/material-design-icons/) for the glyphs/icons.
+- **Polybar** (bottom) : [JetBrains Mono](https://github.com/JetBrains/JetBrainsMono), [FontAwesome](https://fontawesome.com/) and [Material Icons](https://google.github.io/material-design-icons/) for the glyphs/icons.
 
 
 
