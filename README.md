@@ -37,8 +37,7 @@ These provide for system-wide theme consistency based off the current wallpaper.
 - **GTK**: [oomox](https://github.com/themix-project/oomox) & [lxappearance](https://archlinux.org/packages/community/x86_64/lxappearance/)
 
 ### Fonts:  
-- Iosevka, JetBrains Mono, SFNS Display
-- Icons: FontAwesome & Material Icons 
+Iosevka, JetBrains Mono, SFNS Display, FontAwesome, Material Icons
 
 
 
