@@ -10,6 +10,7 @@ After endlessly modding config files striving for the perfect harmony between us
 
 <img src="screenshots/image2.png" width="45%">
 <p/>
+  
 ### System Information:
 
 These are some of the applications that I use in my current setup. 
