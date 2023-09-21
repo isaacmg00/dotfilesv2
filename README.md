@@ -32,7 +32,7 @@ These provide for system-wide theme consistency based off the current wallpaper.
 
 ### Fonts:  
 - Iosevka, JetBrains Mono, SFNS Display
-- For glyphs: FontAwesome & Material Icons 
+- Icons: FontAwesome & Material Icons 
 
 
 
